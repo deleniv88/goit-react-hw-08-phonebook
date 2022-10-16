@@ -1,0 +1,9 @@
+.filterLabel{
+    display: flex;
+    justify-content: center;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.filterInput{
+    margin-left: 10px;
+}

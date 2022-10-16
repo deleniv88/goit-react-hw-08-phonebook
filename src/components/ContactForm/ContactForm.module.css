@@ -1,0 +1,42 @@
+.title{
+    display: flex;
+    justify-content: center;
+}
+
+.contactFormInput{
+    display: flex;
+    justify-content: center;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.forInput{
+    width: 20%;
+    border: 2px solid black;
+    border-radius: 5px;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.contactLabel{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+}
+
+.contactAddBtn{
+    width: 50%;
+    margin: 0 auto;
+    background-color: darkgreen;
+    border: none;
+    padding: 5px;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+}
+
+.contactAddBtn:hover{
+    background-color: green;
+}

@@ -1,0 +1,39 @@
+.contactListUl {
+    list-style-type: circle;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contactListLi {
+    width: 50%;
+    margin-right: 20px;
+    list-style: circle;
+    align-items: center;
+    display: flex;
+    justify-content: space-evenly;
+    border-bottom: 1px solid gray;
+}
+
+.contactListLi:nth-child(even) {
+    background-color: bisque;
+}
+
+.contactNameField {
+    width: 50%;
+}
+
+.contactDelBtn {
+    width: 70px;
+    height: 30px;
+    background-color: brown;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.contactDelBtn:hover {
+    background-color: rgb(190, 77, 77);
+}
