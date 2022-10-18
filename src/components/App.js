@@ -3,7 +3,6 @@ import ContactsList from "./ContactList/ContactsList";
 import ContactForm from './ContactForm/ContactForm';
 import Filter from './Filter/Filter';
 import css from '../components/ContactForm/ContactForm.module.css';
-import PropTypes from 'prop-types';
 
 class App extends Component {
 

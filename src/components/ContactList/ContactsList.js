@@ -16,11 +16,11 @@ const ContactsList = ({ contacts, onDeleteContact }) => (
 );
 
 ContactsList.propTypes = {
-    contacts: PropTypes.shape({
+    contacts: PropTypes.arrayOf(PropTypes.shape({
         id: PropTypes.string.isRequired,
         name: PropTypes.string.isRequired,
-        number: PropTypes.number.isRequired
-    })
+        number: PropTypes.string.isRequired
+    }))
 };
 
 export default ContactsList;

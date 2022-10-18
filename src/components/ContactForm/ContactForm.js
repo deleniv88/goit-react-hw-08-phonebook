@@ -65,10 +65,10 @@ class ContactForm extends Component {
     };
 };
 
-ContactForm.propTypes = {
-    name: PropTypes.string.isRequired,
-    number: PropTypes.string.isRequired,
-    id: PropTypes.string.isRequired
+ContactForm.propTypes = { //тут коли прописую isRequired в console викидує помилку, коли забираю то все ок
+    name: PropTypes.string,
+    number: PropTypes.string,
+    id: PropTypes.string
 };
 
 export default ContactForm;
