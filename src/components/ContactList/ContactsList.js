@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 const ContactsList = ({ contacts, onDeleteContact }) => (
     <div className={css.contactList}>
         <ul className={css.contactListUl}>
-            {contacts.map( ({id, name, number}) => (
+            {contacts.map(({ id, name, number }) => (
                 <li key={id} className={css.contactListLi}>
                     <p className={css.contactNameField}>{name}:{number}</p>
                     <button className={css.contactDelBtn} type="button" onClick={() => onDeleteContact(id)}>Delete</button>
@@ -17,12 +17,9 @@ const ContactsList = ({ contacts, onDeleteContact }) => (
 
 ContactsList.propTypes = {
     contacts: PropTypes.shape({
-        id: PropTypes.oneOfType([
-            PropTypes.string,
-            PropTypes.number
-        ]),
-        name: PropTypes.string,
-        number: PropTypes.number
+        id: PropTypes.string.isRequired,
+        name: PropTypes.string.isRequired,
+        number: PropTypes.number.isRequired
     })
 };
 

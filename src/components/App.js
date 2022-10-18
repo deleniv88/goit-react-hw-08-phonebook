@@ -22,17 +22,11 @@ class App extends Component {
   };
 
   formSubmitHandler = data => {
-    const user = {
-      name: data.name,
-      id: data.id,
-      number: data.number
-    };
-
     if (this.state.contacts.find(user => user.name === data.name)) {
       alert(`${data.name} already exists in phonebook`)
     } else {
       this.setState(prevState => ({
-        contacts: [user, ...prevState.contacts]
+        contacts: [data, ...prevState.contacts]
       }));
     }
   };
@@ -58,17 +52,6 @@ class App extends Component {
       </>
     );
   };
-};
-
-App.propTypes = {
-  contacts: PropTypes.shape({
-    id: PropTypes.oneOfType([
-      PropTypes.string,
-      PropTypes.number
-    ]),
-    name: PropTypes.string,
-    number: PropTypes.number
-  })
 };
 
 export default App;
