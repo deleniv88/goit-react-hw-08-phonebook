@@ -9,9 +9,9 @@ const Filter = ({ value, onChange }) => (
     </label>
 );
 
-Filter.propTypes = {//тут показує помилку, коли є onChange, якщо забираю onChange то помилки немає
+Filter.propTypes = {
     value: PropTypes.string.isRequired,
-    onChange: PropTypes.string.isRequired
+    onChange: PropTypes.func.isRequired
 };
 
 export default Filter;
