@@ -16,7 +16,7 @@ class ContactForm extends Component {
 
     handelSubmit = e => {
         e.preventDefault();
-        this.props.onSubmit(this.state = {
+        this.props.onSubmit({
             name: this.state.name,
             number: this.state.number,
             id: shortid.generate()
@@ -65,7 +65,7 @@ class ContactForm extends Component {
     };
 };
 
-ContactForm.propTypes = { //тут коли прописую isRequired в console викидує помилку, коли забираю то все ок
+ContactForm.propTypes = {
     name: PropTypes.string,
     number: PropTypes.string,
     id: PropTypes.string
