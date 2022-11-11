@@ -43,13 +43,12 @@ export default function App() {
       number
     }
     setContacts(prevState => [newContact, ...prevState])
-
   };
 
   const deleteContact = contactId => {
     const newContact = contacts.filter(contact => contact.id !== contactId)
     setContacts([...newContact])
-    localStorage.setItem('contacts',JSON.stringify(newContact))
+    // localStorage.setItem('contacts',JSON.stringify(newContact))
   };
   
   const getVisibleContacts = () => {

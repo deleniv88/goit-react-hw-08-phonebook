@@ -7,7 +7,6 @@ export default function ContactForm({ onSubmit }) {
 
     const [name, setName] = useState('');
     const [number, setNumber] = useState('');
-    const id = shortid.generate();
 
     const handelOnChange = e => {
         const { name, value } = e.currentTarget;
@@ -25,7 +24,7 @@ export default function ContactForm({ onSubmit }) {
 
     const handelSubmit = e => {
         e.preventDefault();
-        onSubmit(name, number, id)
+        onSubmit(name, number, shortid.generate())
         setName('');
         setNumber('')
     };
@@ -33,10 +32,10 @@ export default function ContactForm({ onSubmit }) {
     return (
         <div className={css.contactFormInput}>
             <form className={css.forInput} onSubmit={handelSubmit}>
-                <label htmlFor={id} className={css.contactLabel}>
+                <label htmlFor={shortid.generate()} className={css.contactLabel}>
                     Name:
                     <input
-                        id={id}
+                        id={shortid.generate()}
                         type="text"
                         name="name"
                         onChange={handelOnChange}
@@ -45,7 +44,7 @@ export default function ContactForm({ onSubmit }) {
                         title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
                         required />
                 </label>
-                <label htmlFor={id} className={css.contactLabel}>
+                <label htmlFor={shortid.generate()} className={css.contactLabel}>
                     Phone:
                     <input
                         type="tel"
@@ -63,8 +62,5 @@ export default function ContactForm({ onSubmit }) {
 };
 
 ContactForm.propTypes = {
-    name: PropTypes.string,
-    number: PropTypes.string,
-    id: PropTypes.string,
     onSubmit: PropTypes.func.isRequired
 };
