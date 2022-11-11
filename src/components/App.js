@@ -48,7 +48,6 @@ export default function App() {
   const deleteContact = contactId => {
     const newContact = contacts.filter(contact => contact.id !== contactId)
     setContacts([...newContact])
-    // localStorage.setItem('contacts',JSON.stringify(newContact))
   };
   
   const getVisibleContacts = () => {
