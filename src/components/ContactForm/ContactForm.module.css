@@ -6,7 +6,9 @@
 .contactFormInput{
     display: flex;
     justify-content: center;
-    font-family: 'Courier New', Courier, monospace;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    font-weight: bold;
 }
 
 .forInput{
@@ -35,6 +37,7 @@
     border-radius: 5px;
     color: white;
     cursor: pointer;
+    align-items: center;
 }
 
 .contactAddBtn:hover{

@@ -1,17 +1,21 @@
 import React from "react";
 import css from '../Filter/Filter.module.css';
 import PropTypes from 'prop-types';
+import { nanoid } from "@reduxjs/toolkit";
 
-const Filter = ({ value, onChange }) => (
-    <label className={css.filterLabel}>
-        Find contacts by name:
-        <input className={css.filterInput} type="text" value={value} onChange={onChange}></input>
-    </label>
-);
+export default function Filter ({ value, handelFiler }) {
+    const contactIdFilter = nanoid();
+
+    return (
+        <label className={css.filterLabel} htmlFor={contactIdFilter}>
+            Find contacts by name:
+            <input className={css.filterInput} type="text" value={value} onChange={(e) => handelFiler(e.target.value)}></input>
+        </label>
+    )
+}
 
 Filter.propTypes = {
-    value: PropTypes.string.isRequired,
-    onChange: PropTypes.func.isRequired
+    // value: PropTypes.string.isRequired,
+    // handelFiler: PropTypes.func.isRequired
 };
 
-export default Filter;

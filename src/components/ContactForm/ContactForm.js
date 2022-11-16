@@ -1,66 +1,46 @@
-import { useState } from "react";
 import css from '../ContactForm/ContactForm.module.css';
-import shortid from "shortid";
-import PropTypes from "prop-types";
+import { useDispatch } from "react-redux";
+import { addContacts } from "redux/contactsSlice";
+import { nanoid } from "@reduxjs/toolkit";
 
-export default function ContactForm({ onSubmit }) {
+export const ContactForm = () => {
 
-    const [name, setName] = useState('');
-    const [number, setNumber] = useState('');
-
-    const handelOnChange = e => {
-        const { name, value } = e.currentTarget;
-        switch (name) {
-            case 'name':
-                setName(value)
-                break;
-            case 'number':
-                setNumber(value)
-                break
-            default:
-                return;
-        }
-    };
+    const dispatch = useDispatch();
 
     const handelSubmit = e => {
         e.preventDefault();
-        onSubmit(name, number, shortid.generate())
-        setName('');
-        setNumber('')
-    };
+        const form = e.target;
+        dispatch(addContacts(form.elements.name.value, form.elements.number.value))
+        form.reset()
+    }
 
     return (
         <div className={css.contactFormInput}>
-            <form className={css.forInput} onSubmit={handelSubmit}>
-                <label htmlFor={shortid.generate()} className={css.contactLabel}>
+            <form onSubmit={handelSubmit}>
+                <label htmlFor={nanoid()} className={css.contactLabel}>
                     Name:
                     <input
-                        id={shortid.generate()}
+                        id={nanoid()}
                         type="text"
                         name="name"
-                        onChange={handelOnChange}
-                        value={name}
                         pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
                         title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
                         required />
                 </label>
-                <label htmlFor={shortid.generate()} className={css.contactLabel}>
+                <label htmlFor={nanoid()} className={css.contactLabel}>
                     Phone:
                     <input
                         type="tel"
                         name="number"
                         pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
                         title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
-                        onChange={handelOnChange}
-                        value={number}
                         required />
                 </label>
                 <button className={css.contactAddBtn} type="submit">Add contact</button>
             </form>
+
         </div>
     )
 };
 
-ContactForm.propTypes = {
-    onSubmit: PropTypes.func.isRequired
-};
+export default ContactForm;
