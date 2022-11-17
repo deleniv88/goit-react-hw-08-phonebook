@@ -1,12 +1,13 @@
 import React from "react";
 import css from '../ContactList/ContactList.module.css';
 import PropTypes from 'prop-types';
-import { useDispatch, useSelector } from "react-redux";
+import {useSelector } from "react-redux";
 import { Contact } from "components/Contacts/Contacts";
+import { getFilteredContacts } from "redux/selectors";
 
 const ContactsList = () => {
 
-    const contacts = useSelector(state => state.contacts.contacts);
+    const contacts = useSelector(getFilteredContacts)
 
     return (
         <ul className={css.contactListUl}>
@@ -14,12 +15,10 @@ const ContactsList = () => {
                 <li className={css.contactListLi} key={contact.id}>
                     <Contact {...contact} />
                 </li>
-
             ))}
         </ul>
     )
 }
-
 
 ContactsList.propTypes = {
     contacts: PropTypes.arrayOf(
