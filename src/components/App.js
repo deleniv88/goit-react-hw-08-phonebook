@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getError, getIsLoading } from "redux/selectors";
 import { useEffect } from "react";
 import { fetchContacts } from "redux/operations";
-import { ToastContainer } from 'react-toastify'
+import { ToastContainer } from 'react-toastify';
 
 export default function App() {
 
@@ -26,7 +26,7 @@ export default function App() {
       {isLoading && !error && <b>Loading contacts...</b>}
       <h2 className={css.title}>CONTACTS</h2>
       <ContactsList />
-      <ToastContainer autoClose={2000} />
+      <ToastContainer autoClose={2000}/>
     </div>
   );
 };
