@@ -2,7 +2,7 @@ import { useDispatch } from "react-redux"
 import css from '../Contacts/Contacts.module.css';
 import PropTypes from 'prop-types'
 import { deleteContact } from "redux/operations";
-import {toast} from 'react-toastify'
+import { toast } from 'react-toastify'
 
 export const Contact = ({ id, name, phone }) => {
     const dispatch = useDispatch();

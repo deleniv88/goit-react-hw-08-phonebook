@@ -4,7 +4,7 @@ import { nanoid } from "@reduxjs/toolkit";
 import { addContact } from 'redux/operations';
 import { useState } from 'react';
 import { getFilteredContacts } from 'redux/selectors';
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 export const ContactForm = () => {
@@ -17,7 +17,7 @@ export const ContactForm = () => {
 
     const handelSubmit = e => {
         e.preventDefault();
-        if(!name && !phone){
+        if (!name && !phone) {
             toast.error(`You can't create the contact without name and phone! Pls enter name and phone of the contact`);
         }
         else if (!name) {
@@ -35,7 +35,6 @@ export const ContactForm = () => {
 
     return (
         <div className={css.contactFormInput}>
-            <ToastContainer />
             <form onSubmit={handelSubmit} autoComplete='off'>
                 <label htmlFor={nanoid()} className={css.contactLabel}>
                     Name:
