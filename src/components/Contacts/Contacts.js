@@ -2,11 +2,12 @@ import { useDispatch } from "react-redux"
 import css from '../Contacts/Contacts.module.css';
 import PropTypes from 'prop-types'
 import { deleteContact } from "redux/operations";
+import {toast} from 'react-toastify'
 
 export const Contact = ({ id, name, phone }) => {
     const dispatch = useDispatch();
 
-    const handelDelete = () => dispatch(deleteContact(id));
+    const handelDelete = () => dispatch(deleteContact(id), toast.success(`Contact ${name} was deleted`));
 
     return (
         <div className={css.contactList}>
