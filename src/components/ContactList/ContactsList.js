@@ -1,23 +1,22 @@
 import React from "react";
-import css from '../ContactList/ContactList.module.css';
 import PropTypes from 'prop-types';
-import {useSelector } from "react-redux";
-import { Contact } from "components/Contacts/Contacts";
-import { getFilteredContacts} from "redux/selectors";
-
+import { useSelector } from "react-redux";
+import { Contact } from "../../components/Contacts/Contacts";
+import { getFilteredContacts } from "../../redux/contacts/selectors";
+import { ContactsLi, ContactsUl } from "./ContactsList.styled";
 
 const ContactsList = () => {
-  
+
     const contacts = useSelector(getFilteredContacts);
- 
+
     return (
-        <ul className={css.contactListUl}>
+        <ContactsUl>
             {contacts.map(contact => (
-                <li className={css.contactListLi} key={contact.id}>
+                <ContactsLi key={contact.id}>
                     <Contact {...contact} />
-                </li>
+                </ContactsLi>
             ))}
-        </ul>
+        </ContactsUl>
     )
 };
 

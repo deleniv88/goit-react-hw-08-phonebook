@@ -1,12 +1,13 @@
-.contactListUl {
+import styled from '@emotion/styled'
+
+export const ContactsUl = styled.ul`
     list-style-type: circle;
     display: flex;
-    justify-content: center;
     flex-direction: column;
-    align-items: center;
-}
+    margin-top: 9%;
+`
 
-.contactListLi {
+export const ContactsLi = styled.li`
     width: 50%;
     padding: 10px;
     list-style: circle;
@@ -14,16 +15,7 @@
     display: flex;
     justify-content: space-evenly;
     border-bottom: 1px solid gray;
-}
-
-
-.contactListLi:nth-child(even) {
+    &:nth-child(even) {
     background-color: bisque;
 }
-
-.toast{
-    background-color: blueviolet;
-}
-
-
-
+`

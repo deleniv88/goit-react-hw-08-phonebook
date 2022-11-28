@@ -1,0 +1,14 @@
+.contactPageContainer{
+    position: relative;  
+}
+
+.contactPageImg{
+    position: absolute;
+    bottom: 0px;
+    width: 25%;
+    right: 0;
+    height: auto;
+    background-image:url('../../default/templatePhoneContacts.jpeg');
+    background-position: center;
+    background-repeat: no-repeat;
+}

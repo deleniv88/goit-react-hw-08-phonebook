@@ -1,0 +1,14 @@
+.registerContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    position: relative;
+}
+
+.registerImg{
+    width: 30%;
+    height: auto;
+    position: absolute;
+    right: 0;
+}

@@ -1,32 +1,43 @@
-import ContactsList from "./ContactList/ContactsList";
-import ContactForm from './ContactForm/ContactForm';
-import Filter from "./Filter/Filter";
-import css from '../components/ContactForm/ContactForm.module.css'
-import { useDispatch, useSelector } from "react-redux";
-import { getError, getIsLoading } from "redux/selectors";
-import { useEffect } from "react";
-import { fetchContacts } from "redux/operations";
-import { ToastContainer } from 'react-toastify';
+
+import ContactsPage from 'pages/ContactsPage/ContactsPage';
+import { HomePage } from 'pages/HomePage/HomePage';
+import { LogIn } from 'pages/LogIn/LogIn';
+import { RegisterPage } from 'pages/RegisterPage/RegisterPage';
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { Route, Routes } from 'react-router-dom';
+import { refreshUser } from 'redux/auth/operations';
+import { useAuth } from './hooks';
+import { Layout } from "./Layout";
+import { PrivateRoute } from './PrivateRoute';
+import { RestrictedRoute } from './RestrictedRoute';
 
 export default function App() {
-
   const dispatch = useDispatch();
-  const isLoading = useSelector(getIsLoading);
-  const error = useSelector(getError);
+
+  const { isRefreshing } = useAuth();
 
   useEffect(() => {
-    dispatch(fetchContacts());
-  }, [dispatch]);
+    dispatch(refreshUser())
+  }, [dispatch])
 
-  return (
-    <div>
-      <h2 className={css.title}>PHONEBOOK</h2>
-      <ContactForm />
-      <Filter />
-      {isLoading && !error && <b>Loading contacts...</b>}
-      <h2 className={css.title}>CONTACTS</h2>
-      <ContactsList />
-      <ToastContainer autoClose={2000}/>
-    </div>
-  );
+  return isRefreshing ? (
+    'Refreshing user'
+  ) : (
+    <Routes>
+      <Route path="/" element={<Layout />}>
+        <Route index element={<HomePage />} />
+        <Route path="/register" element={
+          <RestrictedRoute redirectTo="/contacts" component={<RegisterPage />} />} />
+        <Route path="/login" element={
+          <RestrictedRoute redirectTo="/contacts" component={<LogIn />} />} />
+        <Route
+          path="/contacts"
+          element={
+            <PrivateRoute redirectTo="/login" component={<ContactsPage />} />
+          }
+        />
+      </Route>
+    </Routes>
+  )
 };

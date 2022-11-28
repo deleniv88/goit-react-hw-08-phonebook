@@ -1,15 +1,16 @@
-import css from '../ContactForm/ContactForm.module.css';
 import { useDispatch, useSelector } from "react-redux";
 import { nanoid } from "@reduxjs/toolkit";
-import { addContact } from 'redux/operations';
+import { addContact } from '../../redux/contacts/operations';
 import { useState } from 'react';
-import { getFilteredContacts } from 'redux/selectors';
+import { getFilteredContacts } from '../../redux/contacts/selectors';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { ContactLabel, ContainerContactForm, InputItem } from 'components/ContactForm/ContactForm.styled';
+import { Button } from '@mui/material';
 
 export const ContactForm = () => {
 
-    const [phone, setPhone] = useState('');
+    const [number, setNumber] = useState('');
     const [name, setName] = useState('');
 
     const dispatch = useDispatch();
@@ -17,28 +18,30 @@ export const ContactForm = () => {
 
     const handelSubmit = e => {
         e.preventDefault();
-        if (!name && !phone) {
-            toast.error(`You can't create the contact without name and phone! Pls enter name and phone of the contact`);
+        if (!name && !number) {
+            toast.error(`You can't create the contact without name and number! Pls enter name and number of the contact`);
         }
         else if (!name) {
             toast.error(`Field name can't be empty! Pls enter name of contact`);
-        } else if (!phone) {
-            toast.error(`Field phone can't be empty! Pls enter phone of contact`);
+        } else if (!number) {
+            toast.error(`Field number can't be empty! Pls enter number of contact`);
         } else {
             const existingContact = contacts.find(contact => contact.name.toLowerCase() === name.toLowerCase());
-            existingContact ? toast.error(`Contact ${name} already exists in phonebook. Pls enter another name`)
-                : dispatch(addContact({ name, phone }), toast.success(`New contact ${name} was added`));
+            existingContact ? toast.error(`Contact ${name} already exists in numberbook. Pls enter another name`)
+                : dispatch(addContact({ name, number }), toast.success(`New contact ${name} was added`));
             setName('');
-            setPhone('');
+            setNumber('');
+            console.log(name, number);
         }
     };
 
     return (
-        <div className={css.contactFormInput}>
+        <ContainerContactForm>
             <form onSubmit={handelSubmit} autoComplete='off'>
-                <label htmlFor={nanoid()} className={css.contactLabel}>
-                    Name:
-                    <input
+                <ContactLabel htmlFor={nanoid()}>
+                    <InputItem
+                        variant="filled"
+                        label="name"
                         id={nanoid()}
                         type="text"
                         name="name"
@@ -47,21 +50,22 @@ export const ContactForm = () => {
                         pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
                         title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
                     />
-                </label>
-                <label htmlFor={nanoid()} className={css.contactLabel}>
-                    Phone:
-                    <input
+                </ContactLabel>
+                <ContactLabel htmlFor={nanoid()}>
+                    <InputItem
+                        variant="filled"
+                        label="number"
                         type="tel"
-                        name="phone"
-                        value={phone}
-                        onChange={(e) => setPhone(e.target.value)}
+                        name="number"
+                        value={number}
+                        onChange={(e) => setNumber(e.target.value)}
                         pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
-                        title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
+                        title="number number must be digits and can contain spaces, dashes, parentheses and can start with +"
                     />
-                </label>
-                <button className={css.contactAddBtn} type="submit">Add contact</button>
+                </ContactLabel>
+                <Button variant="contained" type="submit" color="success">Add contact</Button>
             </form>
-        </div>
+        </ContainerContactForm>
     )
 };
 
