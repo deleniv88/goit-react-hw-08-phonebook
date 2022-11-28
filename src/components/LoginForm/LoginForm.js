@@ -23,7 +23,7 @@ export const LoginForm = () => {
     <Form onSubmit={handleSubmit} autoComplete="off">
       <InputItem type="email" name="email" variant="outlined" label="email" />
       <InputItem type="password" name="password" variant="outlined" label="password" />
-      <Button variant="contained" type="submit">Log In</Button>
+      <Button variant="contained" type="submit">Login</Button>
     </Form>
   );
 };

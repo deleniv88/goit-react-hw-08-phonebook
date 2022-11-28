@@ -4,7 +4,7 @@ export const AuthNav = () => {
 
   const navItems = [
     { href: '/register', text: 'Register' },
-    { href: '/login', text: 'Log In' }
+    { href: '/login', text: 'Login' }
   ]
 
   return (
