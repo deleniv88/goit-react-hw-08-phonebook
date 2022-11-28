@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/goit-react-hw-08-movies/static/css/main.790a0202.css",
-    "main.js": "/goit-react-hw-08-movies/static/js/main.046fffd1.js",
-    "static/media/Untitled-2.jpg": "/goit-react-hw-08-movies/static/media/Untitled-2.5f6069dd01951438ac67.jpg",
-    "static/media/templatePhoneContacts.jpeg": "/goit-react-hw-08-movies/static/media/templatePhoneContacts.c43679aacde97e2d04d9.jpeg",
-    "static/media/contactUs.jpeg": "/goit-react-hw-08-movies/static/media/contactUs.141d59e95750d114ad7c.jpeg",
-    "index.html": "/goit-react-hw-08-movies/index.html",
-    "main.790a0202.css.map": "/goit-react-hw-08-movies/static/css/main.790a0202.css.map",
-    "main.046fffd1.js.map": "/goit-react-hw-08-movies/static/js/main.046fffd1.js.map"
+    "main.css": "/goit-react-hw-08-phonebook/static/css/main.425fcc60.css",
+    "main.js": "/goit-react-hw-08-phonebook/static/js/main.be9e8178.js",
+    "static/media/Untitled-2.jpg": "/goit-react-hw-08-phonebook/static/media/Untitled-2.5f6069dd01951438ac67.jpg",
+    "static/media/templatePhoneContacts.jpeg": "/goit-react-hw-08-phonebook/static/media/templatePhoneContacts.c43679aacde97e2d04d9.jpeg",
+    "static/media/contactUs.jpeg": "/goit-react-hw-08-phonebook/static/media/contactUs.141d59e95750d114ad7c.jpeg",
+    "index.html": "/goit-react-hw-08-phonebook/index.html",
+    "main.425fcc60.css.map": "/goit-react-hw-08-phonebook/static/css/main.425fcc60.css.map",
+    "main.be9e8178.js.map": "/goit-react-hw-08-phonebook/static/js/main.be9e8178.js.map"
   },
   "entrypoints": [
-    "static/css/main.790a0202.css",
-    "static/js/main.046fffd1.js"
+    "static/css/main.425fcc60.css",
+    "static/js/main.be9e8178.js"
   ]
 }
