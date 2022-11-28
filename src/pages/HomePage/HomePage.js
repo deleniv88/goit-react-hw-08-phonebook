@@ -2,7 +2,7 @@ import { useAuth } from 'components/hooks';
 import img from '../../default/Untitled-2.jpg';
 import css from '../HomePage/HomePage.module.css'
 
-export const HomePage = () => {
+export default function HomePage(){
     const { isLoggedIn, user } = useAuth();
     const homeImg = img;
     return (

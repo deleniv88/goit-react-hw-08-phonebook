@@ -2,7 +2,7 @@ import { RegisterForm } from "components/RegisterForm/RegisterForm";
 import css from '../RegisterPage/Register.module.css';
 import contactUs from '../../default/contactUs.jpeg';
 
-export const RegisterPage = () => {
+export default function RegisterPage(){
     const us = contactUs;
     return (
         <div>
