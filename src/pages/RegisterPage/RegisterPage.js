@@ -1,17 +1,21 @@
 import { RegisterForm } from "components/RegisterForm/RegisterForm";
 import css from '../RegisterPage/Register.module.css';
-import contactUs from '../../default/contactUs.jpeg';
+import registerImg from '../../default/register.png';
 
-export default function RegisterPage(){
-    const us = contactUs;
+export default function RegisterPage() {
+    const register = registerImg;
     return (
-        <div>
+        <div className={css.main}>
             <div className={css.registerContainer}>
-                <h2>Don't have an account? Please register!</h2>
-                <RegisterForm />
-                <div>
-                    <img className={css.registerImg} src={us} alt="contactUs" />
+                <div className={css.block}>
+                    <h2>Don't have an account?</h2>
+                    <h2>Please register!</h2>
+                    <RegisterForm />
                 </div>
+            </div>
+           
+            <div>
+                <img className={css.registerImg} src={register} alt="contactUs" />
             </div>
         </div>
     )

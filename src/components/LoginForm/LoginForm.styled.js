@@ -5,7 +5,7 @@ export const InputItem = styled(TextField)`
     margin-bottom: 10px;
 `
 export const Form = styled.form`
-    width: 320px;
+    width: 100%;
     display: flex;
     flex-direction: column;
 `

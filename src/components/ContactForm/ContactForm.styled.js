@@ -10,6 +10,12 @@ export const ContainerContactForm = styled.div`
     display: flex;
     margin-bottom: 5%;
     font-weight: bold;
+    background-color: rgb(211,211,211, 0.6);
+    padding: 30px 50px;
+    border-radius: 20px;
+    margin-top: 20px;
+    box-shadow: 0px 0px 4px 4px lightgray;
+    width: 300px;
 `
 export const ContactLabel = styled.label`
     width: 100%;

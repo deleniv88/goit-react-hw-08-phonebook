@@ -1,8 +1,8 @@
 import { useAuth } from 'components/hooks';
-import img from '../../default/Untitled-2.jpg';
+import img from '../../default/search.png';
 import css from '../HomePage/HomePage.module.css'
 
-export default function HomePage(){
+export default function HomePage() {
     const { isLoggedIn, user } = useAuth();
     const homeImg = img;
     return (
@@ -10,15 +10,13 @@ export default function HomePage(){
             <div>
                 {isLoggedIn ?
                     <span className={css.title}>{user.name}'s Phonebook </span>
-                    : <span className={css.titlePlsLogIn}>Your personally Phonebook.
-                        <span>Please login to see your contacts!</span></span>}
+                    : <span className={css.titlePlsLogIn}>Contacts don't showing up?
+                        <span>Please login!</span></span>}
             </div>
-            <div> 
+            <div>
                 <img src={homeImg} alt="homeImage" className={css.homeImg}></img>
             </div>
-            <div className={css.footer}>
-                <span>Made by @deleniv</span>
-            </div>
         </div>
+
     )
 }

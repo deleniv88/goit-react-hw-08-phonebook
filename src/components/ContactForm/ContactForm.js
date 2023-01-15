@@ -38,6 +38,7 @@ export const ContactForm = () => {
     return (
         <ContainerContactForm>
             <form onSubmit={handelSubmit} autoComplete='off'>
+                <span>Please enter name and phone</span>
                 <ContactLabel htmlFor={nanoid()}>
                     <InputItem
                         variant="filled"

@@ -3,13 +3,14 @@ import PropTypes from 'prop-types';
 import { useSelector } from "react-redux";
 import { Contact } from "../../components/Contacts/Contacts";
 import { getFilteredContacts } from "../../redux/contacts/selectors";
-import { ContactsLi, ContactsUl } from "./ContactsList.styled";
+import { ContactsLi, ContactsUl, Main } from "./ContactsList.styled";
 
 const ContactsList = () => {
 
     const contacts = useSelector(getFilteredContacts);
 
     return (
+        <Main>
         <ContactsUl>
             {contacts.map(contact => (
                 <ContactsLi key={contact.id}>
@@ -17,6 +18,7 @@ const ContactsList = () => {
                 </ContactsLi>
             ))}
         </ContactsUl>
+        </Main>
     )
 };
 
