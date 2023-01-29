@@ -36,4 +36,13 @@ export const NavItem = styled(NavLink)`
     color: white;
     background-color: rgb(127,0,255);
     }
+    @media screen and (max-width:768px){
+    font-size: 16px;
+    padding: 10px;
+}
+
+@media screen and (max-width:480px){
+    font-size: 14px;
+    padding: 10px;
+}
 `

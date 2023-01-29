@@ -10,7 +10,20 @@ export const LoginContainer = styled.div`
     border-radius: 20px;
     margin-top: 20px;
     box-shadow: 0px 0px 4px 4px lightgray; 
-    width: 40%;
+    @media screen and (max-width:768px){
+        width: 70%;
+        font-size: 13px;
+}
+
+@media screen and (max-width:480px){
+    width: 70%;
+    font-size: 12px;
+    padding: 30px 30px;
+}
+@media screen and (max-width:320){
+    width: 70%;
+}
+
 `
 
 export const Main = styled.div`

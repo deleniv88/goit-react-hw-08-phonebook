@@ -1,5 +1,5 @@
 import { useAuth } from 'components/hooks';
-import img from '../../default/search.png';
+import img from '../../default/loginNew.png';
 import css from '../HomePage/HomePage.module.css'
 
 export default function HomePage() {
